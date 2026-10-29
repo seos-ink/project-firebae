@@ -1,17 +1,18 @@
-import { Text, View, StyleSheet } from "react-native";
+import { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  FlatList,
+  StyleSheet,
+  Alert,
+} from "react-native";
 
-export default function Index() {
-  return (
-    <View style={styles.container}>
-      <Text>Edit src/app/index.tsx to edit this screen.</Text>
-    </View>
-  );
-}
+import {
+  collection,
+  addDoc,
+  getDocs,
+} from "firebase/firestore";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+import { db } from "./services/firebase";
